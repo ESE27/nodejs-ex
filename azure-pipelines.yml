@@ -11,12 +11,12 @@ pool:
   name: 'Openshift'
 
 steps:
-# - task: oc-cmd@2
-#   inputs:
-#     connectionType: 'OpenShift Connection Service'
-#     openshiftService: 'OpenShift'
-#     version: 4.7.13
-#     cmd: 'oc start-build nodejs-ex --follow'
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'OpenShift'
+    version: 4.7.13
+    cmd: 'oc new-app https://github.com/ESE27/nodejs-ex.git -l name myapp -n openshiftpoc' 
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
