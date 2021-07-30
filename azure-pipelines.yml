@@ -23,7 +23,7 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'OpenShift'
     version: 4.7.13
-    cmd: 'oc new-app https://github.com/ESE27/cicd-pipeline-train-schedule-pipelines.git -l name=myapp2' 
+    cmd: 'oc new-app https://github.com/ESE27/pi.git -l name=myapp3' 
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
