@@ -17,7 +17,7 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'OpenShift'
     version: '4.7.13'
-    cmd: 'oc project openshiftpoc'
+    cmd: 'oc project fa-ocp-poc-dotnet-standalone'
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
