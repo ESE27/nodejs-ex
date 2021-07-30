@@ -4,26 +4,27 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-trigger:
-- master
+# trigger:
+# - master
 
 pool:
   name: 'Openshift'
 
 steps:
 
-- task: oc-cmd@2
-  inputs:
-    connectionType: 'OpenShift Connection Service'
-    openshiftService: 'OpenShift'
-    version: '4.7.13'
-    cmd: 'oc project fa-ocp-poc-dotnet-standalone'
+# - task: oc-cmd@2
+#   inputs:
+#     connectionType: 'OpenShift Connection Service'
+#     openshiftService: 'OpenShift'
+#     version: '4.7.13'
+#     cmd: 'oc project fa-ocp-poc-dotnet-standalone'
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'OpenShift'
     version: 4.7.13
-    cmd: 'oc new-app https://github.com/ESE27/pi.git -l name=myapp3' 
+    cmd: 'oc new-app https://github.com/openshift/sti-ruby.git \
+    --context-dir=2.0/test/puma-test-app -l name=myapp3 -n fa-ocp-poc-dotnet-standalone' 
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
